@@ -11,6 +11,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        myblue: "#C3EBFA",
+        mybluelight: "#EDF9FD",
+        mypurple: "#CFCEFF",
+        mypurplelight: "#F1F0FF",
+        myYellow: "#FAE27C",
+        myYellowlight: "#FEFCE8",
       },
     },
   },
