@@ -33,14 +33,6 @@ const Navbar = async () => {
           <span className="text-[12px] test-gray-500 test-right">{`${role}`}</span>
         </div>
         <div>
-          {/* <Image
-            src="/avatar.png"
-            alt=""
-            width={36}
-            height={36}
-            className="rounded-full"
-          ></Image> */}
-
           <UserButton />
         </div>
       </div>
