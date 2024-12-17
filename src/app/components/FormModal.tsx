@@ -144,7 +144,7 @@ const FormModal = ({
 
     return type === "delete" && id ? (
       <form action={formAction} className="p-4 flex flex-col gap-4">
-        <input type="text | number" name="id" value={id} hidden />
+        <input type="text | number" name="id" defaultValue={id} hidden />
         <span className="text-center font-medium">
           All data will be lost. Are you sure you want to delete this {table}?
         </span>
@@ -153,7 +153,22 @@ const FormModal = ({
         </button>
       </form>
     ) : type === "create" || type === "update" ? (
-      forms[table](setOpen, type, data, relatedData)
+      forms[table] ? (
+        forms[table](setOpen, type, data, relatedData)
+      ) : (
+        <div className="flex flex-col items-center justify-center gap-2 text-gray-500 p-6">
+          <Image
+            src="/work-in-progress.png"
+            alt="Work in Progress"
+            width={50}
+            height={50}
+          />
+          <span className="text-lg font-medium">Work in Progress</span>
+          <p>
+            Form for "{table}" is under development. Please check back later!
+          </p>
+        </div>
+      )
     ) : (
       "Form not found!"
     );
@@ -168,14 +183,17 @@ const FormModal = ({
         <Image src={`/${type}.png`} alt="" width={16} height={16} />
       </button>
       {open && (
-        <div className="w-screen h-screen absolute left-0 top-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
-          <div className="bg-white p-4 rounded-md relative w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%]">
+        <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
+          <div className="bg-white max-h-[90vh] overflow-y-auto p-4 rounded-md relative w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%]">
+            {/* Form Component */}
             <Form />
+
+            {/* Close Button */}
             <div
               className="absolute top-4 right-4 cursor-pointer"
               onClick={() => setOpen(false)}
             >
-              <Image src="/close.png" alt="" width={14} height={14} />
+              <Image src="/close.png" alt="Close" width={14} height={14} />
             </div>
           </div>
         </div>

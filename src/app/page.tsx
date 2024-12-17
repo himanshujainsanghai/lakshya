@@ -12,6 +12,7 @@ import * as SignIn from "@clerk/elements/sign-in";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { IoIosClose } from "react-icons/io";
 
 const LoginPage = () => {
   const { user } = useUser();
@@ -26,11 +27,11 @@ const LoginPage = () => {
   }, [user, router]);
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="w-full flex items-center justify-center">
       <SignIn.Root>
         <SignIn.Step
           name="start"
-          className="bg-white p-12 rounded-md shadow-2xl flex flex-col gap-2"
+          className=" p-12 rounded-md shadow-2xl flex flex-col gap-2"
         >
           <h1 className="text-xl font-bold flex items-center gap-2">
             <Image src={"/logo.png"} alt="" width={24} height={24}></Image>
@@ -138,16 +139,26 @@ const HomePage = () => {
       {/* Portals  Section */}
       <ImageSlider />
 
-      {/* {isLoginVisible && <LoginPage />} */}
-      {isLoginVisible && (
-        <div className="w-screen h-screen absolute left-0 top-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
-          <LoginPage />
+      
 
-          <div
-            className="absolute top-10 right-10 cursor-pointer "
-            onClick={() => setLoginvisble(false)}
-          >
-            <Image src="/close.png" alt="" width={30} height={30} />
+      {isLoginVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
+          {/* Main Modal Container */}
+          <div className="bg-white p-6 rounded-lg shadow-lg relative w-[90%] max-w-md">
+            {/* Close Button */}
+            <button
+              onClick={() => setLoginvisble(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition duration-200"
+              aria-label="Close"
+            >
+              <IoIosClose size={32} />
+            </button>
+
+            {/* Content */}
+            <div className="flex flex-col items-center gap-4">
+              <h2 className="text-2xl font-semibold text-gray-800">Login</h2>
+              <LoginPage />
+            </div>
           </div>
         </div>
       )}
@@ -166,8 +177,6 @@ const HomePage = () => {
                 applications and customize as you scale.
               </p>
             </div>
-
-            {/* Image with transition */}
 
             <div className="w-full xl:w-3/5 flex items-center justify-center">
               <div className="relative w-full xl:w-4/5 h-auto flex items-center justify-center">
