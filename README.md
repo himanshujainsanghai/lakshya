@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project deployed on the [link](https://lakshya-himanshu.vercel.app)
 
 ## Getting Started
 
@@ -20,17 +20,26 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+<h1>School Management System</h1>
+<h3>A comprehensive School Management System designed to streamline administrative processes, manage student and faculty data, and automate key tasks like attendance tracking, grade management, and fee processing. This system is built to enhance the operational efficiency of educational institutions.</h3>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key features
+1. User Management
+2. Student Management
+3. Faculty Management
+4. Class and Subject Management
+5. Attendance Management (coming soon)
+6. Examination and Grading System
+7. Timetable Management
+8. Fee Management
+9. Library Management (coming soon)
+10. Communication System
+11. Event & Calendar Management
+12. Reports & Analytics (coming soon)
+13. Parent Portal
+14. Security & Data Protection
+15. Customizability
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
