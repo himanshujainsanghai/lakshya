@@ -22,6 +22,9 @@ const config: Config = {
         mybg3: "#540394",
         mybg4: "#300156",
       },
+      screens: {
+        mobile: "375px",
+      },
     },
   },
   plugins: [],

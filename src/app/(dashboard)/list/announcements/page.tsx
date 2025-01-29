@@ -1,4 +1,4 @@
-import FormModal from "@/app/components/FormModal";
+import FormContainer from "@/app/components/FormContainer";
 import Pagination from "@/app/components/Pagination";
 import Table from "@/app/components/Table";
 import TableSearch from "@/app/components/TableSearch";
@@ -52,15 +52,10 @@ const AnnouncementsListPage = async (props: { searchParams: searchParams }) => {
 
       <td>
         <div className="flex items-center gap-2">
-          {/* <Link href={`/list/teachers/${item.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-myblue">
-              <Image src="/edit.png" alt="" width={16} height={16}></Image>
-            </button>
-          </Link> */}
           {userRole === "admin" && (
             <>
-              <FormModal table="announcement" type="update" data={item} />
-              <FormModal table="announcement" type="delete" id={item.id} />
+              <FormContainer table="announcement" type="update" data={item} />
+              <FormContainer table="announcement" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -136,7 +131,7 @@ const AnnouncementsListPage = async (props: { searchParams: searchParams }) => {
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
             {(userRole === "admin" || userRole === "teacher") && (
-              <FormModal table="announcement" type="create" />
+              <FormContainer table="announcement" type="create" />
             )}
           </div>
         </div>

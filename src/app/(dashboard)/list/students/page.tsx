@@ -57,17 +57,21 @@ const StudentListPage = async (props: { searchParams: searchParams }) => {
       className="border-b  border-gary-200 even:bg-slate-50 text-sm hover:bg-mypurplelight"
     >
       <td className=" flex items-center gap-4 p-4">
-        <Image
-          src={item.img || "/noAvatar.png"}
-          alt=""
-          width={40}
-          height={40}
-          className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
-        />
-        <div className="flex flex-col">
-          <h3 className="text-semibold">{item.name}</h3>
-          <p className="text-gray-500 text-xs">{item.class.name}</p>
-        </div>
+        <Link href={`/list/students/${item.id}`}>
+          <div className="flex items-center gap-4">
+            <Image
+              src={item.img || "/noAvatar.png"}
+              alt=""
+              width={40}
+              height={40}
+              className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
+            />
+            <div className="flex flex-col">
+              <h3 className="text-semibold">{item.name}</h3>
+              <p className="text-gray-500 text-xs">{item.class.name}</p>
+            </div>
+          </div>
+        </Link>
       </td>
       <td className="hidden md:table-cell">{item.username}</td>
       <td className="hidden md:table-cell">{item.class.name}</td>
@@ -77,11 +81,11 @@ const StudentListPage = async (props: { searchParams: searchParams }) => {
 
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/list/students/${item.id}`}>
+          {/* <Link href={`/list/students/${item.id}`}>
             <button className="w-7 h-7 flex items-center justify-center rounded-full bg-myblue">
               <Image src="/view.png" alt="" width={16} height={16}></Image>
             </button>
-          </Link>
+          </Link> */}
           {userRole === "admin" && (
             <FormContainer table="student" type="delete" id={item.id} />
           )}

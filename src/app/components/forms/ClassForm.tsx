@@ -3,7 +3,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import InputField from "../InputField";
-import { Dispatch, SetStateAction, useActionState, useEffect } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  startTransition,
+  useActionState,
+  useEffect,
+} from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { classSchema, ClassSchema } from "@/app/lib/formvalidationSchemas";
@@ -39,8 +45,10 @@ const ClassForm = ({
   );
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    formAction(data);
+    // console.log(data);
+    startTransition(() => {
+      formAction(data); // Safely call the action within a transition.
+    });
   });
 
   const router = useRouter();

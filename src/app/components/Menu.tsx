@@ -92,29 +92,29 @@ const menuItems = [
       },
     ],
   },
-  {
-    title: "OTHER",
-    items: [
-      {
-        icon: "/profile.png",
-        label: "Profile",
-        href: "/profile",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: "/setting.png",
-        label: "Settings",
-        href: "/settings",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: "/logout.png",
-        label: "Logout",
-        href: "/logout",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-    ],
-  },
+  // {
+  //   title: "OTHER",
+  //   items: [
+  //     {
+  //       icon: "/profile.png",
+  //       label: "Profile",
+  //       href: "/profile",
+  //       visible: ["admin", "teacher", "student", "parent"],
+  //     },
+  //     {
+  //       icon: "/setting.png",
+  //       label: "Settings",
+  //       href: "/settings",
+  //       visible: ["admin", "teacher", "student", "parent"],
+  //     },
+  //     {
+  //       icon: "/logout.png",
+  //       label: "Logout",
+  //       href: "/logout",
+  //       visible: ["admin", "teacher", "student", "parent"],
+  //     },
+  //   ],
+  // },
 ];
 
 const Menu = async () => {
@@ -122,10 +122,10 @@ const Menu = async () => {
   const role = user?.publicMetadata.role as string;
 
   return (
-    <div className="mt-4 text-sm">
+    <div className="mt-4 px-2 text-sm">
       {menuItems.map((i) => (
         <div className="flex flex-col gap-1" key={i.title}>
-          <span className="hidden lg:block text-gray-400 font-light my-2">
+          <span className="hidden xl:block text-gray-400 font-light my-2">
             {i.title}
           </span>
           {i.items.map((item) => {
@@ -134,12 +134,10 @@ const Menu = async () => {
                 <Link
                   href={item.label === "Home" ? `/${role}` : item.href}
                   key={item.label}
-                  className="flex items-center justify-center lg:justify-start gap-2 text-gray-500 py-1
-
-                  md:px-1 rounded-md hover:bg-mybluelight"
+                  className="flex lg:flex-row flex-col  justify-center md:justify-start gap-2 text-gray-500 py-1 md:px-1 rounded-md hover:bg-mybluelight"
                 >
-                  <Image src={item.icon} alt="" width={20} height={20} />
-                  <span className="hidden lg:block">{item.label}</span>
+                  <Image src={item.icon} alt="" width={25} height={25} />
+                  <span className=" text-xs lg:text-xl ">{item.label}</span>
                 </Link>
               );
             }

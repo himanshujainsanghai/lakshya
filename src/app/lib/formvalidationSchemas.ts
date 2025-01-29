@@ -23,7 +23,7 @@ export const teacherSchema = z.object({
   username: z
     .string()
     .min(3, { message: "Username must be at least 3 characters long!" })
-    .max(20, { message: "Username must be at most 20 characters long!" }),
+    .max(30, { message: "Username must be at most 20 characters long!" }),
   password: z
     .string()
     .min(8, { message: "Password must be at least 8 characters long!" })
@@ -87,3 +87,24 @@ export const examSchema = z.object({
 });
 
 export type ExamSchema = z.infer<typeof examSchema>;
+
+export const announcementSchema = z.object({
+  id: z.coerce.number().optional(),
+  title: z.string().min(1, { message: "Announcement name is required!" }),
+  description: z.string(),
+  date: z.coerce.date({ message: "Date is required" }),
+  classId: z.coerce.number({ message: "class Id must be valid" }), //Class id
+});
+
+export type AnnouncementSchema = z.infer<typeof announcementSchema>;
+
+export const eventSchema = z.object({
+  id: z.coerce.number().optional(),
+  title: z.string().min(1, { message: "Announcement name is required!" }),
+  description: z.string(),
+  startTime: z.coerce.date({ message: "start time is required" }),
+  endTime: z.coerce.date({ message: "end time is required" }),
+  classId: z.coerce.number({ message: "class Id must be valid" }), //Class id
+});
+
+export type EventSchema = z.infer<typeof eventSchema>;
