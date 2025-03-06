@@ -71,6 +71,25 @@ const LoginPage = () => {
           >
             Sign In
           </SignIn.Action>
+
+          <div className="mt-4 p-4 bg-gray-100 rounded-md text-sm">
+            <h3 className="font-semibold">Demo Credentials:</h3>
+            <p>
+              Admin: <strong>admin / admin</strong>
+            </p>
+            <p>
+              Teacher: <strong>teacher / teacher</strong>
+            </p>
+            <p>
+              Student: <strong>student / student</strong>
+            </p>
+            <p>
+              Parent: <strong>parent / parent</strong>
+            </p>
+            <p className="text-gray-500 text-xs mt-2">
+              Please ignore password policies due to weak password.
+            </p>
+          </div>
         </SignIn.Step>
       </SignIn.Root>
     </div>
@@ -119,8 +138,11 @@ const HomePage = () => {
               personalized user experiences.
             </p>
             <a href="#cta">
-              <button className="bg-mybg4 text-white hover:bg-mybg3 hover:text-gray-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300">
-                Book Free Demo
+              <button
+                onClick={() => setLoginvisble(true)}
+                className="bg-mybg4 text-white hover:bg-mybg3 hover:text-gray-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300"
+              >
+                Test and Explore
               </button>
             </a>
           </div>
@@ -138,8 +160,6 @@ const HomePage = () => {
 
       {/* Portals  Section */}
       <ImageSlider />
-
-      
 
       {isLoginVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
